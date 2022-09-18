@@ -1,196 +1,199 @@
-.contract_info {
-  text-align: center;
-  padding: 3.5rem;
-  font-weight: 700;
-}
-.header {
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-  .search_bar {
-    background: #ffffff;
-    border: 0.5px solid #989b9b;
-    border-radius: 5px;
-    padding: 1rem;
-    flex: 1 0 75%;
-    i {
-      font-size: 20px;
-      color: #dadada;
-    }
-    input {
-      border: unset;
-      text-indent: 10px;
-      &::placeholder {
-        color: #c4c4c4;
+article {
+  padding-bottom: 4rem;
+  .contract_info {
+    text-align: center;
+    padding: 3.5rem;
+    font-weight: 700;
+  }
+  .header {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    .search_bar {
+      background: #ffffff;
+      border: 0.5px solid #989b9b;
+      border-radius: 5px;
+      padding: 1rem;
+      flex: 1 0 75%;
+      i {
+        font-size: 20px;
+        color: #dadada;
+      }
+      input {
+        border: unset;
+        text-indent: 10px;
+        &::placeholder {
+          color: #c4c4c4;
+        }
       }
     }
-  }
-  .filter_button {
-    background: #ebebeb;
-    border: unset;
-    border-radius: 5px;
-    font-weight: 400;
-    color: #1c0b11;
-    letter-spacing: 0.25px;
-    padding: 1rem;
-    flex: 1 1 10%;
-  }
-  .new_hire_button {
-    background: #ff5a70;
-    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
-    border-radius: 5px;
-    border: unset;
-    color: white;
-    letter-spacing: 0.25px;
-    padding: 1rem;
-    flex: 1 0 auto;
-  }
-}
-
-.filter_section {
-  display: flex;
-  justify-content: center;
-  margin: 2rem 0;
-  flex-wrap: wrap;
-  row-gap: 1rem;
-  column-gap: 3rem;
-  align-items: center;
-  > * {
-    flex: 0 1 80%;
-  }
-}
-
-.desktop_contracts_table {
-  width: 100%;
-  background: #ffffff;
-  mix-blend-mode: normal;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  thead {
-    height: 15vh;
-    th {
-      text-align: center;
+    .filter_button {
+      background: #ebebeb;
+      border: unset;
+      border-radius: 5px;
+      font-weight: 400;
+      color: #1c0b11;
+      letter-spacing: 0.25px;
+      padding: 1rem;
+      flex: 1 1 10%;
+    }
+    .new_hire_button {
+      background: #ff5a70;
+      box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+      border-radius: 5px;
+      border: unset;
+      color: white;
+      letter-spacing: 0.25px;
+      padding: 1rem;
+      flex: 1 0 auto;
     }
   }
-  tbody {
-    tr {
-      background: #f9f9f9;
-      height: 90px;
-      color: #3b3b3b;
-      td {
+
+  .filter_section {
+    display: flex;
+    justify-content: center;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+    row-gap: 1rem;
+    column-gap: 3rem;
+    align-items: center;
+    > * {
+      flex: 0 1 80%;
+    }
+  }
+
+  .desktop_contracts_table {
+    width: 100%;
+    background: #ffffff;
+    mix-blend-mode: normal;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    thead {
+      height: 15vh;
+      th {
         text-align: center;
       }
     }
+    tbody {
+      tr {
+        background: #f9f9f9;
+        height: 90px;
+        color: #3b3b3b;
+        td {
+          text-align: center;
+        }
+      }
+    }
   }
-}
 
-.mobile_contracts_table {
-  margin-top: 4rem;
-  background: #ffffff;
-  mix-blend-mode: normal;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  > section {
-    display: grid;
-    grid-template-columns: 50% 50%;
+  .mobile_contracts_table {
+    margin-top: 4rem;
+    background: #ffffff;
+    mix-blend-mode: normal;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    > section {
+      display: grid;
+      grid-template-columns: 50% 50%;
+      align-items: center;
+      padding: 0.75rem;
+      p {
+        margin: 0;
+      }
+      &:nth-child(odd) {
+        background-color: #dddddd;
+      }
+      h4 {
+        font-size: 18px;
+        margin: 0;
+        font-weight: 700;
+      }
+      .status_wrapper {
+        justify-content: flex-start;
+        .status {
+          width: fit-content;
+        }
+      }
+      .contract_name_section {
+        justify-content: flex-start;
+        > img {
+          display: none;
+        }
+      }
+      .action_icon {
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  .contract_name_section {
+    display: flex;
+    gap: 1rem;
     align-items: center;
-    padding: 0.75rem;
+    width: 100%;
+    justify-content: center;
     p {
       margin: 0;
     }
-    &:nth-child(odd) {
-      background-color: #dddddd;
-    }
-    h4 {
-      font-size: 18px;
-      margin: 0;
-      font-weight: 700;
-    }
-    .status_wrapper {
-      justify-content: flex-start;
-      .status {
-        width: fit-content;
+  }
+  .status_wrapper {
+    display: flex;
+    justify-content: center;
+    .status {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      border: 1px solid;
+      width: 55%;
+      border: 50%;
+      border-radius: 30px;
+      padding: 0 0.5rem;
+      height: 32px;
+      align-content: center;
+      &.active {
+        background: rgba(54, 207, 130, 0.18);
+        color: rgba(54, 207, 130, 1);
+      }
+      &.signature_pending {
+        background: rgba(242, 157, 66, 0.3);
+        color: #f29d42;
+      }
+      span {
+        font-weight: 900;
+        font-size: xx-large;
+        margin-bottom: 0.25rem;
+      }
+      p {
+        font-weight: 600;
+        margin: 0;
+        white-space: nowrap;
       }
     }
-    .contract_name_section {
-      justify-content: flex-start;
-      > img {
-        display: none;
-      }
-    }
+  }
+  .action_wrapper {
     .action_icon {
-      transform: rotate(90deg);
+      color: #c4c4c4;
+    }
+    .dropdown-item {
+      display: flex;
+      gap: 0.5rem;
+      color: #3b3b3b;
+      i {
+        color: #898989;
+      }
+      .delete_icon {
+        color: var(--red);
+      }
     }
   }
-}
 
-.contract_name_section {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  width: 100%;
-  justify-content: center;
-  p {
-    margin: 0;
-  }
-}
-.status_wrapper {
-  display: flex;
-  justify-content: center;
-  .status {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    border: 1px solid;
-    width: 55%;
-    border: 50%;
-    border-radius: 30px;
-    padding: 0 0.5rem;
-    height: 32px;
-    align-content: center;
-    &.active {
-      background: rgba(54, 207, 130, 0.18);
-      color: rgba(54, 207, 130, 1);
-    }
-    &.signature_pending {
-      background: rgba(242, 157, 66, 0.3);
-      color: #f29d42;
-    }
-    span {
-      font-weight: 900;
-      font-size: xx-large;
-      margin-bottom: 0.25rem;
-    }
-    p {
-      font-weight: 600;
-      margin: 0;
-      white-space: nowrap;
-    }
-  }
-}
-.action_wrapper {
-  .action_icon {
-    color: #c4c4c4;
-  }
-  .dropdown-item {
-    display: flex;
-    gap: 0.5rem;
-    color: #3b3b3b;
-    i {
-      color: #898989;
-    }
-    .delete_icon {
-      color: var(--red);
-    }
-  }
-}
-
-@media (min-width: 768px) {
-  .filter_section {
-    justify-content: space-between;
-    > * {
-      flex: 1;
+  @media (min-width: 768px) {
+    .filter_section {
+      justify-content: space-between;
+      > * {
+        flex: 1;
+      }
     }
   }
 }
