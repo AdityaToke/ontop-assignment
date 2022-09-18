@@ -1,0 +1,11 @@
+<section class="date_range_picker" [ngClass]="externalClasses">
+    <i class="far fa-calendar-alt">  {{title}}</i>
+    <input
+            type="text"
+            ngxDaterangepickerMd
+            [(ngModel)]="value"
+            placeholder="Choose date"
+            (change)="changePicker($event)"
+             />
+             <i class="fas fa-angle-down"></i>
+</section>

@@ -1,0 +1,63 @@
+.header {
+  box-shadow: 0px 4px 24px rgba(0, 0, 0, 0.08);
+  display: flex;
+  padding: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  .menu {
+    display: none;
+    width: 60%;
+    justify-content: space-around;
+    align-items: center;
+    a {
+      color: #898989;
+      text-decoration: auto;
+      text-indent: 0.5rem;
+      &.router-link-active {
+        color: var(--red);
+      }
+    }
+  }
+  .user_profile {
+    display: none;
+    color: #898989;
+    text-indent: 10px;
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      border: 1px solid;
+      border: 1px solid rgba(196, 196, 196, 1);
+      height: 50px;
+      top: 10px;
+    }
+    img {
+      margin-left: 1rem;
+    }
+    i {
+      font-size: 24px;
+      margin-left: 0.5rem;
+    }
+  }
+  .menu_icon {
+    font-size: 24px;
+    color: var(--red);
+  }
+}
+
+/* For device tab and above */
+@media (min-width: 768px) {
+  .header {
+    padding: 1rem 3.5rem;
+    .user_profile {
+      display: block;
+      position: relative;
+    }
+    .menu {
+      display: flex;
+    }
+    .menu_icon {
+      display: none;
+    }
+  }
+}

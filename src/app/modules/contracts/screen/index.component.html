@@ -1,0 +1,163 @@
+<article class="container">
+  <h2 class="contract_info">Contract For OnTop</h2>
+
+  <section class="header">
+    <section class="search_bar">
+      <i class="fas fa-search"></i>
+      <input type="text" placeholder="Search" />
+    </section>
+    <button class="filter_button">
+      <i class="fas fa-sliders-h"> Filter</i>
+    </button>
+    <button class="new_hire_button">
+      <i class="fas fa-plus"> New Hire</i>
+    </button>
+  </section>
+
+  <section class="filter_section" [formGroup]="filterGroup">
+    <date-range-picker
+      formControlName="contract_date_range"
+      [class]="'filter'"
+      [title]="'Create On:'"
+    ></date-range-picker>
+    <dropdown
+      formControlName="contract_type"
+      [class]="'filter'"
+      [title]="'Contract Type'"
+      [dropdownList]="contractTypeList"
+    ></dropdown>
+    <input
+      type="text"
+      class="contract_name filter"
+      placeholder="Contract Name"
+      formControlName="contract_name"
+    />
+    <dropdown
+      formControlName="contract_status"
+      [class]="'filter'"
+      [title]="'Status'"
+      [dropdownList]="contractTypeList"
+    ></dropdown>
+  </section>
+
+  <ng-template
+    [ngTemplateOutlet]="isDesktop ? desktopTable : mobTable"
+  ></ng-template>
+</article>
+
+<ng-template #mobTable>
+  <section class="mobile_table_version">
+    <section class="mobile_contracts_table" *ngFor="let item of contractData">
+      <section>
+        <h4>Contract Name</h4>
+        <ng-template
+          [ngTemplateOutlet]="contractName"
+          [ngTemplateOutletContext]="{ contractName: item.contract_name }"
+        ></ng-template>
+      </section>
+      <section>
+        <h4>Type</h4>
+        <p>{{ item.type }}</p>
+      </section>
+      <section>
+        <h4>Start date</h4>
+        <p>{{ item.start_date | date: "mediumDate" }}</p>
+      </section>
+      <section>
+        <h4>Amount</h4>
+        <p>{{ item.amount }}</p>
+      </section>
+      <section>
+        <h4>Status</h4>
+        <ng-template
+          [ngTemplateOutlet]="status"
+          [ngTemplateOutletContext]="{ statusInfo: item.status }"
+        ></ng-template>
+      </section>
+      <section>
+        <h4>Action</h4>
+        <ng-template [ngTemplateOutlet]="action"></ng-template>
+      </section>
+    </section>
+  </section>
+</ng-template>
+
+<ng-template #desktopTable>
+  <table class="desktop_contracts_table">
+    <thead>
+      <tr>
+        <th>Contract Name</th>
+        <th>Type</th>
+        <th>Start date</th>
+        <th>Amount</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of contractData">
+        <td>
+          <ng-template
+            [ngTemplateOutlet]="contractName"
+            [ngTemplateOutletContext]="{ contractName: item.contract_name }"
+          ></ng-template>
+        </td>
+        <td>{{ item.type }}</td>
+        <td>{{ item.start_date | date: "mediumDate" }}</td>
+        <td>{{ item.amount }}</td>
+
+        <td>
+          <section>
+            <ng-template
+              [ngTemplateOutlet]="status"
+              [ngTemplateOutletContext]="{ statusInfo: item.status }"
+            ></ng-template>
+          </section>
+        </td>
+        <td>
+          <ng-template [ngTemplateOutlet]="action"></ng-template>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</ng-template>
+
+<ng-template #contractName let-item="contractName">
+  <section class="contract_name_section">
+    <img [src]="item.img" [alt]="item.name" />
+    <p>{{ item.name }}</p>
+  </section>
+</ng-template>
+
+<ng-template #status let-item="statusInfo">
+  <section class="status_wrapper">
+    <section class="status" [ngClass]="item.id">
+      <span>&#183;</span>
+      <p>{{ item.name }}</p>
+    </section>
+  </section>
+</ng-template>
+
+<ng-template #action>
+  <section class="action_wrapper">
+    <i class="action_icon fas fa-ellipsis-v" data-bs-toggle="dropdown"></i>
+    <ul class="dropdown-menu">
+      <li>
+        <p class="dropdown-item"><i class="far fa-edit"></i> Edit</p>
+      </li>
+      <li>
+        <p class="dropdown-item"><i class="fas fa-signature"></i> Sign</p>
+      </li>
+      <li>
+        <p class="dropdown-item">
+          <i class="far fa-file-alt"></i> View Summary
+        </p>
+      </li>
+      <li>
+        <p class="dropdown-item">
+          <i class="far fa-trash-alt delete_icon"></i> Delete
+        </p>
+      </li>
+    </ul>
+  </section>
+</ng-template>

@@ -1,0 +1,18 @@
+<article class="header">
+  <img class="logo img-fluid" src="/assets/images/logo.svg" alt="getontop" />
+  <nav class="menu">
+    <a
+      *ngFor="let item of menuList"
+      [routerLink]="item.route"
+      routerLinkActive="router-link-active"
+    >
+      <i [class]="item.icon"></i> {{ item.title
+      }}<i class="fas fa-angle-down"></i>
+    </a>
+  </nav>
+  <section class="user_profile">
+    <img src="/assets/images/dummy_user_pic.png" alt="user pic" />
+    <i class="fas fa-angle-down"></i>
+  </section>
+  <i class="menu_icon fas fa-bars"></i>
+</article>

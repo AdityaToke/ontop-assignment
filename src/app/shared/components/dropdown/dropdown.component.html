@@ -1,0 +1,12 @@
+<section class="dropdown_container">
+  <button
+    [ngClass]="externalClasses"
+    type="button"
+    data-bs-toggle="dropdown"
+  >
+    {{title}} <i class="fas fa-angle-down"></i>
+  </button>
+  <ul class="dropdown-menu">
+    <li *ngFor="let item of dropdownList">{{item.title}}</li>
+  </ul>
+</section>
